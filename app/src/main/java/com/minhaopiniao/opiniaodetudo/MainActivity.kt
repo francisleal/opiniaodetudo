@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.minhaopiniao.opiniaodetudo.model.repository.ReviewRepository
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
             val name = textViewName.text
             val review = textViewReview.text
             Toast.makeText(this, "Nome:$name - Opinião:$review", Toast.LENGTH_LONG).show();
+            ReviewRepository.instance.save(name.toString(), review.toString())
         }
     }
 }
