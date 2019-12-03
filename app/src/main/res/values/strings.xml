@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Opinião de tudo</string>
+    <string name="label_nova_opiniao">Nova Opinião</string>
+    <string name="label_nome">Nome</string>
+    <string name="label_opiniao">Opiniao</string>
+    <string name="input_name">Nome do produto/filme/coisa</string>
+    <string name="input_opinicao">Escreva aqui a sua opinião</string>
+    <string name="lavel_btn_salvar">Salvar</string>
 </resources>
