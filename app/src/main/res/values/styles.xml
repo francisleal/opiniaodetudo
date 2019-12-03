@@ -8,9 +8,7 @@
 <!--        <item name="colorAccent">@color/colorAccent</item>-->
 <!--    </style>-->
 
-    <style name="AppTheme" parent="Theme.AppCompat"> </style>
-
-    <style name="AppThemeNight" parent="Theme.AppCompat">
+    <style name="AppTheme" parent="Theme.AppCompat">
         <item name="colorPrimary">@color/night_colorPrimary</item>
         <item name="colorPrimaryDark">@color/night_colorPrimaryDark</item>
         <item name="colorAccent">@color/night_colorAccent</item>
