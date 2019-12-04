@@ -1,13 +1,16 @@
 package com.minhaopiniao.opiniaodetudo
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.minhaopiniao.opiniaodetudo.model.repository.ReviewRepository
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         val textViewName = findViewById<TextView>(R.id.input_nome)
         val textViewReview = findViewById<TextView>(R.id.input_review)
 
+        val mainContainer = findViewById<ConstraintLayout>(R.id.main_container)
+
         buttonSave.setOnClickListener {
             val name = textViewName.text
             val review = textViewReview.text
@@ -28,6 +33,11 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(Intent(this, ListActivity::class.java))
         }
+
+        // metodo para esconder o teclado
+        mainContainer.setOnTouchListener { v, event ->
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)}
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
