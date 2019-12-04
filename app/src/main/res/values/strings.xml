@@ -6,4 +6,6 @@
     <string name="input_name">Nome do produto/filme/coisa</string>
     <string name="input_opinicao">Escreva aqui a sua opinião</string>
     <string name="lavel_btn_salvar">Salvar</string>
+
+    <string name="menu_list_reviews_label">MENU</string>
 </resources>

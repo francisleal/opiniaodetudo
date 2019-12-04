@@ -3,6 +3,8 @@ package com.minhaopiniao.opiniaodetudo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -26,5 +28,18 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(Intent(this, ListActivity::class.java))
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+//        if(item?.itemId == R.id.menu_list_reviews){
+//        startActivity(Intent(this, ListActivity::class.java))
+//            return true
+//        }
+        return false
     }
 }

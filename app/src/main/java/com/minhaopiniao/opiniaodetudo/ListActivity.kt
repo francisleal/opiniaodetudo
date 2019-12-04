@@ -22,5 +22,12 @@ class ListActivity : AppCompatActivity(){
         val adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, stringList );
 
         listView.adapter = adapter
+
+        this.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }
