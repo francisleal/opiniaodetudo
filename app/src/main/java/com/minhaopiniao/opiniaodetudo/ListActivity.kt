@@ -1,10 +1,13 @@
 package com.minhaopiniao.opiniaodetudo
 
-import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.minhaopiniao.opiniaodetudo.model.Review
 import com.minhaopiniao.opiniaodetudo.model.repository.ReviewRepository
 
 class ListActivity : AppCompatActivity(){
@@ -12,14 +15,23 @@ class ListActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list_review_layout)
 
-        val intent = Intent(this, ListActivity::class.java)
-
-
         val listView = findViewById<ListView>(R.id.list_recyclerview)
         val reviews = ReviewRepository.instance.listAll()
-        val stringList = reviews.map { "${it.name} - ${it.review}" }
 
-        val adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, stringList );
+        val adapter =  object : ArrayAdapter<Review>(this, -1, reviews ){
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val itemView = layoutInflater.inflate(R.layout.review_list_item_layout, null)
+                val item = reviews[position]
+
+                val textViewName = itemView.findViewById<TextView>(R.id.item_name)
+                val textViewReview = itemView.findViewById<TextView>(R.id.item_review)
+
+                textViewName.text = item.name
+                textViewReview.text = item.review
+
+                return itemView
+            }
+        }
 
         listView.adapter = adapter
 
